@@ -85,7 +85,8 @@ main {
 
 #response {
     min-height: 40vh;
-    min-width: 100%;
+    /* min-width: 100%; */
+    width: 70%;
     margin-top: 30%;
     background-image: url(assets/joke_area_bg.avif);
     background-size: cover;
@@ -102,9 +103,12 @@ main {
     /* background-color: #587EFD; */
 }
 #response-wrapper{
-    height: 30vmin;
-    width: 80vmax;
+    height: 30vh;
+    width: 60vmax;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #temp{
@@ -125,14 +129,6 @@ main {
     z-index: 1;
 }
 
-/* 
-#middleImg1 {
-    position: absolute;
-    right: 0%;
-    height: 50%;
-    width: auto;
-} */
-
 #single>p {
     font-size: 3vmax;
     display: flex;
@@ -143,6 +139,10 @@ main {
     flex-direction: column;
     gap: 1vmax;
     font-size: 2.5vmax;
+}
+#twoPart p{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #error-div{
@@ -235,6 +235,7 @@ main {
     height: 10vh;
     width: auto;
     position: fixed;
+    z-index: 50;
     bottom: -7%;
     right: -7%;
     mix-blend-mode: multiply;
@@ -259,6 +260,7 @@ main {
     clip-path: inset(0% 30%);
     /*THIS CLIPS IMAGE FROM LEFT AND RIGHT WITH 30% VALUE */
     position: fixed;
+    z-index: 50;
     bottom: -20%;
     left: -5%;
     transition: all 1s ease-in;
@@ -295,7 +297,7 @@ main {
     }
     #response{
         margin-top: 18%;
-        min-width: 50%;
+        width: 100%;
     }
     #alert{
         height: 30%;
@@ -309,5 +311,12 @@ main {
 
     #temp{
         display: block;
+    }
+
+    #single>p{
+        font-size: 1.5vw;
+    }
+    #twoPart{
+        font-size: 1.5vw;
     }
 }

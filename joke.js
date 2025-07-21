@@ -36,15 +36,33 @@ async function getJoke(ctg = "programming") {
             responseDiv.style.opacity = "1";
             let jokeType = apiData.type;
             if (jokeType == "single") {
-                document.querySelector("#single>p").innerText = apiData.joke;
-                document.querySelector("#twoPart").style.display = "none";
-                document.querySelector("#single").style.display = "block";
+                if (apiData.joke.length > 200) {
+                    alert("The joke size is to big, try another one ☺");
+                    console.log(apiData.joke.length,"SINGLE");
+                    console.log(apiData.joke);
+                    
+                }
+                else {
+                    document.querySelector("#single>p").innerText = apiData.joke;
+                    document.querySelector("#twoPart").style.display = "none";
+                    document.querySelector("#single").style.display = "block";
+                }
             }
             else if (jokeType == "twopart") {
-                document.querySelector("#single").style.display = "none";
+                if(apiData.setup.length > 150 || apiData.delivery.length >200){
+                    alert("The joke size is to big, try another one ☺");
+                    console.log(apiData.setup.length, apiData.delivery.length,"TWO PART");
+                    console.log(apiData.setup);
+                    console.log(apiData.delivery);
+                    
+                    
+                }
+                else{
+                    document.querySelector("#single").style.display = "none";
                 document.querySelector("#twoPart").style.display = "flex";
                 document.querySelector("#setup").innerText = apiData.setup;
                 document.querySelector("#delivery").innerText = apiData.delivery;
+                }
             }
             document.querySelector("#loader").style.display = "none";
             document.querySelector("#alert").style.opacity = "0";
